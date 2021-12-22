@@ -1,0 +1,27 @@
+//Zero Transform script
+
+global string $sel[] = `ls -sl`;
+
+proc main()
+{
+    for ($cur in $sel)
+    {
+        float $translate[] = `xform -q -ws -t $cur`;
+        float $rotate[] = `xform -q -ws -ro $cur`;
+    
+        $zeroNode = `group -empty -name ($cur + "Zero")`;
+    
+        SetTransforms($translate, $rotate);
+    }
+}
+
+proc bool SetTransforms(float $translate[], float $rotate[])
+{
+    xform -ws -t $translate[0] $translate[1] $translate[2] $zeroNode;
+    xform -ws -ro $rotate[0] $rotate[1] $rotate[2] $zeroNode;
+    parent $cur $zeroNode;
+    return true;
+}
+
+
+main();

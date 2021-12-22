@@ -1,0 +1,13 @@
+//Orientate IK handle on character rig
+string $sel[] = `ls -sl`;
+
+global proc main(string $sel[])
+{
+    float $rotate[3] = `xform -q -ws -ro $sel[0]`;
+    float $translate[3] = `xform -q -ws -t $sel[0]`;
+    
+    xform -ws -ro $rotate[0] $rotate[1] $rotate[2] $sel[1];
+    xform -ws -t $translate[0] $translate[1] $translate[2] $sel[1];
+}
+
+main($sel);
