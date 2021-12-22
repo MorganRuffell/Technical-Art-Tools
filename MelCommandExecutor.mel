@@ -1,0 +1,23 @@
+//Maya Command Executor -- Simple tool to execute mel commands
+
+string $mceWin;
+int $FieldWidth;
+int $FieldHeight;
+
+proc main(string $mceWin)
+{
+	$FieldWidth = 500;
+	$FieldHeight = 150;
+
+	if (`window -exists $mceWin` == true)
+    {
+		deleteUI -window $mceWin;
+	}
+
+	string $mceWin = `window -t "MEL Command Executor" -s false`;
+	columnLayout; 
+	cmdScrollFieldExecuter -w $FieldWidth -h $FieldHeight -ann "MEL Command Shell";
+	showWindow $mceWin;
+}
+
+main($mceWin);

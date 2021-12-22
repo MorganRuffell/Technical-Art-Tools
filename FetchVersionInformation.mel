@@ -1,0 +1,163 @@
+//Fetch Version Information MEL Script -- Morgan Ruffell, 2021
+
+proc main()
+{
+		
+	string $Window = `window -mnb on -mxb on -s true -title "Maya Version Information"`;
+	columnLayout;
+	cmdScrollFieldReporter -w 800 -h 600;
+	showWindow $Window;	
+	scriptEditorInfo -clearHistory;	
+	
+	print("\n\n");
+	
+	print("Hardware Information" + "\n\n");
+	
+	GetHardwareInformation();
+	
+	print("\n\n");
+	
+	print("Maya Information" + "\n\n");
+	
+	GetMayaVersionInformation();
+		
+}
+
+proc GetHardwareInformation()
+{
+	print(`hardware -brd`);
+	print( `hardware -cpu`);
+	print("CPU Clock Speed ");
+	print(`hardware -mhz`);
+	print(`hardware -gfx`);
+	print("Number of Cores ");
+	print(`hardware -npr`);
+}
+
+proc IsRunningInBatchMode(int $value)
+{
+	if ($value == 0)
+	{
+		print(capitalizeString(`about -a`) + " is not running in batch mode!" + "\n");
+	}
+	else if ($value == 1)
+	{
+		print(capitalizeString(`about -a`) + " is running in batch mode!" + "\n");
+	}
+	else
+	{
+		print("Presence of batch mode cannot be determined" + "\n");
+	}
+}
+
+proc IsConnected()
+{
+	int $Connected = `about -cnt`;
+	
+	if($Connected == 1)
+	{
+		print("Autodesk " + capitalizeString(`about -a`) + " is connected to the internet" + "\n");
+	}
+	
+	else
+	{
+		print("No Connection to the internet" + "\n");
+	}
+		
+}
+
+global proc Architecture()
+{
+	int $ApplicationArch = `about -x64`;
+	string $OperatingSystem = `about -os`; 
+	string $OperatingSystemVersion = `about -osv`;
+	string $OSVersion = "";
+	int $IsTabletPC = `about -tab`;
+	
+	if($OperatingSystem == "win64")
+	{
+		$OSVersion = "64 Bit version of Windows " + $OperatingSystemVersion + "\n";
+		
+		string $WindowsManager = `about -wm`;
+		print ("The name of the windows manager is " + $WindowsManager + "\n");
+		
+	}
+	
+	print(capitalizeString(`about -a`) + " is running on " + $OSVersion + "\n");
+	
+	if($IsTabletPC == 1)
+	{
+		print(capitalizeString(`about -a`) + " is running in tablet mode." + "\n");
+	}
+	
+}
+
+proc Directories()
+{
+	string $Directories[];
+	
+	string $preferencesDir = `about -pd` + " is Preferences Directory";
+	string $environmentFile = `about -env` + " is Environment Directory";
+	string $BuildDir =`about -bd` + " is Build Directory";
+	string $LRLDir =`about -lrl` + " is Local Resource Directory";
+	
+	$Directories[0] = $preferencesDir;
+	$Directories[1] = $environmentFile;
+	$Directories[2] = $BuildDir;
+	$Directories[3] = $LRLDir;
+	
+	print("\n\n\n");
+	
+	if($LRLDir != "")
+	{
+			for($i = 0; $i < 3; ++$i)
+			{
+				print(capitalizeString(`about -a`) + " Directory at " + $Directories[$i] + "\n" );
+			}	
+			
+			return;
+	}
+	
+	for($i = 0; $i < 4; ++$i)
+	{
+		print(capitalizeString(`about -a`) + " Directory at " + $Directories[$i] + "\n" );
+	}	
+	
+}
+
+proc Versioning()
+{
+	string $VersionData = `about -v`;
+	string $ProductData = `about -p`;
+	string $FileVersionData = `about -f`;
+	int $IsMayaIndie = `about -lt`;
+	
+	if($IsMayaIndie == 0)
+	{
+		print("This is not a indie version of maya");
+	}
+	else
+	{
+		print("This is a indie version of maya");
+	}
+}
+
+
+proc GetMayaVersionInformation()
+{
+	string $applicationName = "Application name: Autodesk " + capitalizeString(`about -a`) + " " + `about -api` + "\n";
+	int $BatchMode = `about -b`;
+	
+	
+	print($applicationName);
+	
+	
+	IsRunningInBatchMode($BatchMode);
+	IsConnected();
+	Architecture();
+	Directories();
+	Versioning();
+	
+}
+
+main()
