@@ -1,0 +1,21 @@
+global proc OpenUnreal()
+{
+	system ("start C:/ProgramFiles/Epic Games/UE_4.27/Engine/Binaries/Win64/UE4Editor.exe");
+}
+
+global proc OpenVisualStudioCode(string $username)
+{
+	system ("start C:/Users/1804824/AppData\Local\Programs\Microsoft VS Code\Code.exe");
+}
+
+proc main()
+{
+	string $username;
+	
+	OpenUnreal();
+	OpenVisualStudioCode($username);
+	
+}
+
+
+main();
