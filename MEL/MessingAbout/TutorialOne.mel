@@ -1,0 +1,15 @@
+global string $allobjects[];
+global string $ObjName;
+
+global proc main()
+{
+    $allobjects = `ls -l -sl`;
+
+
+    for ($ObjName in $allobjects)
+    {
+    	delete($ObjName);
+    }
+}
+
+main();
