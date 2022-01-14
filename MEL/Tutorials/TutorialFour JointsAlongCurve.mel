@@ -1,0 +1,20 @@
+proc main()
+{
+	string $sel_cv[] = `ls -sl -fl`;
+	
+	for($cv in $sel_cv)
+	{
+		float $getCV_x = `getAttr ($cv + ".xValue")`;
+		float $getCV_y = `getAttr ($cv + ".yValue")`;
+		float $getCV_z = `getAttr ($cv + ".zValue")`;
+		
+		select -cl;
+		
+		string $makeJoint = `joint`;
+		setAttr ($makeJoint + ".tx") $getCV_x;
+		setAttr ($makeJoint + ".ty") $getCV_y;
+		setAttr ($makeJoint + ".tz") $getCV_z;
+	}
+}
+
+main();

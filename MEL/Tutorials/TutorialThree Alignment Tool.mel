@@ -1,0 +1,31 @@
+//Alignment tool
+
+proc aligner()
+{	
+	//If a command fails once you've changed the type, be aware of the fact
+	//that maya will cache commands, a quick fix is to rename!
+	string $pc[] = `parentConstraint`;
+	delete $pc;
+	
+}
+
+
+proc main()
+{
+	string $objaligner;
+	
+	if(`window -ex $objaligner`){
+		deleteUI -window $objaligner;
+	}
+	
+	
+	string $objaligner = `window -t "Object Alignment Tool" -s 0 -wh 400 300`;
+	
+	columnLayout -adj true;
+	text -l "First select source, and then select target";
+	button -l "Align" -w 300 -h 100 -c "aligner"; 	
+	showWindow $objaligner;
+}
+
+
+main();
