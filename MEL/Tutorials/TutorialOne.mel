@@ -5,7 +5,6 @@ global proc main()
 {
     $allobjects = `ls -l -sl`;
 
-
     for ($ObjName in $allobjects)
     {
     	delete($ObjName);
