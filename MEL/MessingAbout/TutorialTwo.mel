@@ -1,0 +1,33 @@
+global int $cube;
+global int $amount = 32;
+global int $upperBound = 128;
+global int $lowerBound = 10;
+
+proc main() {
+
+    int $switch = 0;
+
+    for ($cube = 1; $cube < $amount; $cube++)
+    {
+		if($switch == 0)
+		{
+			float $random = rand($lowerBound, $upperBound);
+			polyCone;	
+		
+			move(cos($cube) + $random)(tan($cube))(sin($cube));
+			
+			$switch = 1;
+		}
+		else
+		{
+			float $random = rand($lowerBound, $upperBound);
+			polyCube;	
+		
+			move(cos($cube) + $random)(tan($cube))(sin($cube));
+			$switch = 0;
+		}	
+    }   
+}
+
+
+main();
