@@ -5,15 +5,35 @@ global proc OpenUnreal()
 
 global proc OpenVisualStudioCode(string $username)
 {
-	system ("start C:/Users/1804824/AppData\Local\Programs\Microsoft VS Code\Code.exe");
+	string $commandstring = "start C:/Users/";
+	string $endcommandstring = "/AppData\Local\Programs\Microsoft VS Code\Code.exe";
+	
+	system ($commandstring + $username + $endcommandstring);
 }
+
+global proc OpenSubstancePainter()
+{
+	system("start C:/Program Files/Allegorithmic/Substance Painter/Substance Painter.exe");
+}
+
+global proc OpenSubstanceDesigner()
+{
+	system("start C:/Program Files/Allegorithmic/Substance Designer/Substance Designer.exe");
+}
+
+global proc OpenPhotoshop()
+{
+	system("start C:/Program Files/Adobe/Adobe Photoshop 2021/Photoshop.exe");
+}
+
 
 proc main()
 {
-	string $username;
+	string $username = `getenv "USER"`;
 	
-	OpenUnreal();
-	OpenVisualStudioCode($username);
+	
+	
+	
 	
 }
 
