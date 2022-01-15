@@ -4,4 +4,14 @@ A range of technical art tools for a range of DCC applications, such as Autodesk
 ![Main Marking Menu](https://github.com/MorganRuffell/Technical-Art-Tools/blob/main/Technical%20Art%20Tools%20001.png)
 
 
-These are built in MEL, python and MaxScript.
+### MEL:
+  
+    -     Toolkit for a marking menu that can open applications on your system from inside maya
+    -     Commands to fetch data about the maya install
+
+### Python:
+
+
+### MaxScript:
+
+
