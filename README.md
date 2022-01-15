@@ -10,8 +10,10 @@ A range of technical art tools for a range of DCC applications, such as Autodesk
     -     Commands to fetch data about the maya install
 
 ### Python:
+  
+    -     Under Construction
 
 
 ### MaxScript:
 
-
+    -     Under Construction
