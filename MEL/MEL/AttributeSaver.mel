@@ -1,0 +1,46 @@
+
+proc main()
+{
+	string $SelPoses[] = `ls -sl`;
+	string $storeCmd = "";
+		
+	if (size($SelPoses) < 1)
+	{
+		warning "You need to have at least one object in selection!" -sl on;
+	}
+	else
+	{
+		//print $SelPoses;
+		for($element in $SelPoses)
+		{
+			string $Keyable[] = `listAttr -k -r -w -c -u $element`;
+			
+			for($ChannelsVar in $Keyable)
+			{
+				float $findVal = `getAttr ($element + "." + $ChannelsVar)`;
+				
+				string $SaveToShelf = "setAttr " + ($element + "." + $ChannelsVar) + " " + $findVal + ";\n";
+				$StoreCommands = $SaveToShelf + $StoreCommands;
+				
+			}
+		
+		}
+		
+		string $pd_body = `promptDialog -t "Body Pose" -message "Name of pose?" -button "Save Pose"`;
+		
+		if($pd_body  == "Save Pose"){
+			
+			string $pd_body_name = `promptDialog -q -t`;
+			
+			shelfButton -label $pd_body_name -ann "test" -imageOverlayLabel "test" -c $storeCmd -p "MEL Tools Shelf";
+		}
+		
+		
+		shelfButton -ann "test" -imageOverlayLabel "test" -c $storeCmd -p "MEL Tools Shelf";
+		
+	}
+
+}
+
+
+main();
