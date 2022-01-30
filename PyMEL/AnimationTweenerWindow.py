@@ -88,9 +88,47 @@ main()
 
 
 class AnimationTweenWindow(object):
-   def showWindow(self):
+
+    windowName = "TweenerWindow"
+
+    def __init__(self):
+
+        if cmds.window(self.windowName, query = True, exists = True):
+            cmds.deleteUI(self.windowName)
+
+        showWindow(self)
+
+    def showWindow(self):
        cmds.window("Tweener Window")
        cmds.showWindow()
+
+    def reset(self, *args):
+        if args: 
+            for x in args:
+                print(x)
+        
+        cmds.floatSlider(self.slider, value = 50)
+
+
+    def close(self, *args):
+        if args: 
+            for x in args:
+                print(x)
+        
+        deleteUI(windowName)
+
+    def BuildUI(self):
+        column = cmds.columnLayout(self.windowName)
+        row = cmds.rowLayout(numberOfColumns = 2)
+
+        cmds.text(label = "Slider for Interpolated value")
+        self.slider = cmds.floatSlider(min = 0, max = 100, value = 50, step = 1, changeCommand = main())
+
+        cmds.setParent(column)
+        cmds.button(label = "Reset", command = self.reset)
+        cmds.button(label = "Close", command = self.close)
+
+        
 
 
 
