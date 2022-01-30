@@ -85,3 +85,12 @@ def main():
     Tween(12, selection = True)
    
 main()
+
+
+class AnimationTweenWindow(object):
+   def showWindow(self):
+       cmds.window("Tweener Window")
+       cmds.showWindow()
+
+
+
