@@ -14,3 +14,9 @@
 ### MaxScript:
 
     -     Under Construction
+    
+##### External Dependencies:
+Included in this library are some external dependencies, these files are listed as and when they are used
+
+     -    Qt.py from https://github.com/mottosso/Qt.py, this is not mine and I do not claim credit over this file or any
+          other contents of that repository, it is included as an external dependency for technical art tools.
