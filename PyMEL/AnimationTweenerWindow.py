@@ -104,6 +104,17 @@ class AnimationTweenWindow(BaseMayaWindow):
 
         showWindow(self)
 
+    def BuildUI(self):
+        column = cmds.columnLayout(self.windowName)
+        row = cmds.rowLayout(numberOfColumns = 2)
+
+        cmds.text(label = "Slider for Interpolated value")
+        self.slider = cmds.floatSlider(min = 0, max = 100, value = 50, step = 1, changeCommand = main())
+
+        cmds.setParent(column)
+        cmds.button(label = "Reset", command = self.reset)
+        cmds.button(label = "Close", command = self.close)
+
     def showWindow(self):
        cmds.window("Tweener Window")
        cmds.showWindow()
@@ -123,17 +134,7 @@ class AnimationTweenWindow(BaseMayaWindow):
         
         deleteUI(windowName)
 
-    def BuildUI(self):
-        column = cmds.columnLayout(self.windowName)
-        row = cmds.rowLayout(numberOfColumns = 2)
-
-        cmds.text(label = "Slider for Interpolated value")
-        self.slider = cmds.floatSlider(min = 0, max = 100, value = 50, step = 1, changeCommand = main())
-
-        cmds.setParent(column)
-        cmds.button(label = "Reset", command = self.reset)
-        cmds.button(label = "Close", command = self.close)
-
+   
         
 
 
