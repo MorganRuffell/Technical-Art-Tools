@@ -8,7 +8,7 @@
 
 ### Python:
   
-    -     Under Construction
+    -     Animation tweener, uses object orientated python code to interpolate new positions for animations.
 
 
 ### MaxScript:
