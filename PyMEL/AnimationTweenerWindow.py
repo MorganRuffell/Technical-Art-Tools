@@ -1,10 +1,9 @@
 from maya import cmds
 import BasicProgramClass as Program
-
+from BaseUI import BaseMayaWindow 
 
 m_currentTime = Cmds.currentTime;
 AttributeFullName = ""
-
    
 main()
 
@@ -13,6 +12,7 @@ class TweenProgram(Program):
     tweenValue = 0
 
     def _init(self):
+
         Tween(this.tweenValue, selection = True)
 
     def ConstructAttributeName():
@@ -93,7 +93,7 @@ class TweenProgram(Program):
         CreateCommandNames(attributes, obj, percentage)
 	
     
-class AnimationTweenWindow(object):
+class AnimationTweenWindow(BaseMayaWindow):
 
     windowName = "TweenerWindow"
 
@@ -111,7 +111,7 @@ class AnimationTweenWindow(object):
     def reset(self, *args):
         if args: 
             for x in args:
-                print(x)
+                args.remove(x)
         
         cmds.floatSlider(self.slider, value = 50)
 
@@ -119,7 +119,7 @@ class AnimationTweenWindow(object):
     def close(self, *args):
         if args: 
             for x in args:
-                print(x)
+                args.remove(x)
         
         deleteUI(windowName)
 
