@@ -17,7 +17,8 @@
     
 ### Unreal Engine:
 
-    -     Under Construction
+    -     Asset Renamer - Just renames stuff when executed in editor
+    -     Power of Two - Checks texture nature to ensure that they can be correctly mapped
     
 ##### External Dependencies:
 Included in this library are some external dependencies, these files are listed as and when they are used
