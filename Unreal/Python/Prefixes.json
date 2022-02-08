@@ -1,0 +1,20 @@
+// This is the prefixes used in the tool, these are exported as a JSON file.
+
+{
+    "Blueprint" : "BP_",
+    "StaticMesh" : "SM_",
+    "Skeleton" : "SKL_",
+    "PhysicsAsset" : "PA_",
+    "Material" : "M_",
+    "MaterialInstance" : "MI_",
+    "MaterialFunction" : "MF_",
+    "NiagaraEmitter" : "NE_",
+    "NiagaraSystem" : "NS_",
+    "Animation" : "ANIM_",
+    "BlueprintWidget" : "BPW_",
+    "Struct" : "S_",
+    "SoundCue" : "SC_",
+    "Texture2D" : "T_",
+    "RenderTarget" : "RT",
+    "Enum" : "E_"
+}

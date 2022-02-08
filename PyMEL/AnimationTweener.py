@@ -1,6 +1,6 @@
 from maya import cmds
 
-m_currentTime = Cmds.currentTime;
+m_currentTime = Cmds.currentTime
 AttributeFullName = ""
 
 def ConstructAttributeName():
