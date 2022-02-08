@@ -1,5 +1,3 @@
-// This is the prefixes used in the tool, these are exported as a JSON file.
-
 {
     "Blueprint" : "BP_",
     "StaticMesh" : "SM_",
@@ -16,5 +14,9 @@
     "SoundCue" : "SC_",
     "Texture2D" : "T_",
     "RenderTarget" : "RT",
-    "Enum" : "E_"
+    "Enum" : "E_",
+    "MediaPlayer" : "MP_",
+    "TextureRenderTarget2D" : "TRT_",
+    "ParticleSystem" : "PS_"
+
 }

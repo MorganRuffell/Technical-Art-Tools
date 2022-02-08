@@ -1,24 +1,10 @@
 from sys import prefix
 import unreal
+import json
 
-prefixMapping = {
-    "Blueprint" : "BP_",
-    "StaticMesh" : "SM_",
-    "Skeleton" : "SKL_",
-    "PhysicsAsset" : "PA_",
-    "Material" : "M_",
-    "MaterialInstance" : "MI_",
-    "MaterialFunction" : "MF_",
-    "NiagaraEmitter" : "NE_",
-    "NiagaraSystem" : "NS_",
-    "Animation" : "ANIM_",
-    "BlueprintWidget" : "BPW_",
-    "Struct" : "S_",
-    "SoundCue" : "SC_",
-    "Texture2D" : "T_",
-    "RenderTarget" : "RT",
-    "Enum" : "E_",
-}
+prefixMapping = {}
+with open("..\Prefixes.json","r") as json_file:
+    prefixMapping = json.loads(json_file.read())
 
 class Prefixer(object):
 
@@ -31,7 +17,7 @@ class Prefixer(object):
 
     def program(self):
         for asset in self.selected_assets:
-            assetname = asset.get_fname()
+            assetname = system_lib.get_object_name(asset)
             asset_class = asset.get_class()
             class_name = system_lib.get_class_display_name(asset_class)
 
@@ -47,8 +33,10 @@ class Prefixer(object):
                 editor_util.rename_asset(asset, newAssetName)
                 prefixed_assets += 1
 
+            else:
+                unreal.log("Asset {} of type {} is already prefixed with {}".format(asset_name, class_name, class_Prefix))
 
-            unreal.log("{} with class {}".format(assetname, asset_class))
+            unreal.log("Prefixed {} of {} assets".format(prefixed_assets, number_of_assets))
 
     def __init__(self):
 
