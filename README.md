@@ -19,6 +19,7 @@
 
     -     Asset Renamer - Just renames stuff when executed in editor
     -     Power of Two - Checks texture nature to ensure that they can be correctly mapped
+    -     Prefixer - Appends a list of prefixes to selected assets in the editor, this is stored as a json file in this repo and imported
     
 ##### External Dependencies:
 Included in this library are some external dependencies, these files are listed as and when they are used
