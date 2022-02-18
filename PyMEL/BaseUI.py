@@ -13,6 +13,9 @@ class BaseMayaWindow(object, name):
         if name == "":
             name = "BaseMayaWindow"
 
+        elif name is None:
+            name = "BaseMayaWindow"
+
         if cmds.window(self.windowName, query = True, exists = True):
             cmds.deleteUI(self.windowName)
 
