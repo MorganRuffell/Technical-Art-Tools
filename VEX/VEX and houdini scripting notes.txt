@@ -1,0 +1,53 @@
+VEX Notes:
+
+## Keywords
+
+VEX			Compiled to C/C++ code, not alternative to scripting but a more efficent language designed to create shaders and create nodes
+
+HScript			Legacy scripting tools, similar to MEL inside Maya
+
+Python			More modern scripting language, this is used inside pretty much everything nowadays. With companies looking to centrailize resources
+				and employees wanting access to resources easier than before.
+
+
+## Introduction
+
+VEX is Houdinis scripting language, like all things in houdini. It takes everything you've known and shoots steroids inside of it.
+The language is similar to C++ in that issues are critical. If you fuck up the language, then that's it the program ends. There is little to no exception
+catching.
+
+The syntax is primarily C like, so as we know C this will be arguably easier to work with.
+
+Before we even write a line of code, it's important that we understand what is going on with houdini when we start programming with it:
+
+	HOM		Houdini Object Model, this is similar to the DirectX12 component object model that we are currently working with inside of Creative
+
+	HScript		Your grandads scripting language inside Houdini, this used to be the main one that we used. Now we use python.
+
+	VEX		Coding tool inside Houdini which is compiled to C/C++ code, it draws elements from pixars renderman.
+
+	HAPI		Allows Houdini digital assets to be used directly inside of a host application, so for example we could yeet our stuff from houdini to Unreal
+			There are two wrappers to this C and Python. We'll work in python, as we are more concerned with scripting as of now. But we can go to C++
+			later down the line.
+
+	PDG		This is for dependency graphs inside of Houdini, there is also a python API for jobs scripts.
+	
+	HQueue		We can remotely control HQueue servers, this is really advanced and way outside the scope of what I'm doing with technical art tools
+	
+	HDK		Houdini Development kit, all in C++ this is for developing more components for houdini. We are not going to touch this either!	
+
+
+As you can see houdini has a massive range of APIs for writing extensions, code and all round technical stuff you can really dig into.
+I'd really reccommend that you have a good understanding of houdini and it's DCC workflows before writing code in it.
+
+## Content
+
+Vex has four categories of content.
+
+	-	Geometry
+	-	Shader
+	-	Particles
+	-	Fur
+
+VEX brings together C which it is loosely based on, as well as borrowing things from C++ and Renderman.
+As well as having four categories of content, it is used in several places.
