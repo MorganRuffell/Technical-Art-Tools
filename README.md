@@ -5,6 +5,11 @@
   
     -     Toolkit for a marking menu that can open applications on your system from inside maya
     -     Commands to fetch data about the maya install
+    -     Orientate IK - Orientates IK handles on character rigs
+    -     Zero Transforms - Simple goes through Zeros transforms on all selected nodes in maya
+    -     Attribute Saver - Simply Saves attributes on a selected character rig, allowing them to be stored and then retrived for later use
+    -     WIP - Allows you to open applications from within maya, still something I'm working on. Objective would be to allow integration with perforce 
+          saving artists from having to work with p4 helix or p4 cmds.
 
 ### Python:
 
