@@ -1,5 +1,9 @@
 ![Simple Logo](https://github.com/MorganRuffell/Technical-Art-Tools/blob/main/Logo.png)
 
+### Project Information
+Technical Art tools is a selection of tools made for Autodesk Products, Unreal Engine (My Favourite thing at the moment!) and other DCC packages, including Houdini.
+They are all under construction and are a little something I'm doing on weekends outside of my Final Project for university. They are freely accessible and open to all!
+
 
 ### MEL:
   
@@ -26,6 +30,11 @@
     -     Power of Two - Checks texture nature to ensure that they can be correctly mapped
     -     Prefixer - Appends a list of prefixes to selected assets in the editor, this is stored as a json file in this repo and imported
     -     Asset Duplicator - Simply Duplicates assets in Unreal's Content Browser
+   
+### Houdini :
+
+    -     Under Construction
+   
    
 ##### External Dependencies:
 Included in this library are some external dependencies, these files are listed as and when they are used
