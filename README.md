@@ -7,7 +7,7 @@
     -     Commands to fetch data about the maya install
 
 ### Python:
-  
+
     -     Animation tweener, uses object orientated python code to interpolate new positions for animations.
 
 
@@ -17,10 +17,11 @@
     
 ### Unreal Engine:
 
-    -     Asset Renamer - Just renames stuff when executed in editor
+    -     Asset Renamer - Just renames stuff when executed in editor, comes with a WIP GUI based on PySide
     -     Power of Two - Checks texture nature to ensure that they can be correctly mapped
     -     Prefixer - Appends a list of prefixes to selected assets in the editor, this is stored as a json file in this repo and imported
-    
+    -     Asset Duplicator - Simply Duplicates assets in Unreal's Content Browser
+   
 ##### External Dependencies:
 Included in this library are some external dependencies, these files are listed as and when they are used
 
